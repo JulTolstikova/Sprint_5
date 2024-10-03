@@ -20,6 +20,7 @@ class Test_Logout:
         # Нажимаем кнопку выхода
         WebDriverWait(driver, 5).until(expected_conditions.visibility_of_element_located(TestLocators.LOGOUT_BTN))
         driver.find_element(*TestLocators.LOGOUT_BTN).click()
+
         # Проверяем, что отображается страница авторизации
         WebDriverWait(driver, 5).until(
             expected_conditions.visibility_of_element_located(TestLocators.MAIN_LOGIN_BTN))
