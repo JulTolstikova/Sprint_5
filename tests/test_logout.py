@@ -6,6 +6,7 @@ class Test_Logout:
     def test_logout_from_profile(self, driver, register_user):
         # Ожидаем появления кнопки входа в личный кабинет после успешной регистрации
         WebDriverWait(driver, 5).until(expected_conditions.visibility_of_element_located(TestLocators.MAIN_LOGIN_BTN))
+
         # Используем зарегистрированного пользователя для входа
         driver.find_element(*TestLocators.INPUT_EMAIL).send_keys(register_user["email"])
         driver.find_element(*TestLocators.INPUT_PASSWORD).send_keys(register_user["password"])
