@@ -21,6 +21,7 @@ def driver(base_url):
     yield driver
     driver.quit()
 
+# генератор рандомного email
 def generate_email():
     random_digits = ''.join([str(random.randint(0, 9)) for _ in range(4)])
     email = f"jul_tolstikova_14{random_digits}@yandex.ru"
