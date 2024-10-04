@@ -1,6 +1,7 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from locators import TestLocators
+from conftest import BASE_URL
 
 class Test_Authorization:
     def test_login_on_registration_form(self, driver, register_user):
@@ -33,7 +34,7 @@ class Test_Authorization:
             expected_conditions.visibility_of_element_located(TestLocators.PLACE_AN_ORDER_BTN))
 
     def test_login_from_profile(self, driver, register_user):
-        driver.get("https://stellarburgers.nomoreparties.site/")
+        driver.get(BASE_URL)
         WebDriverWait(driver,5).until(expected_conditions.element_to_be_clickable(TestLocators.PROFILE_BTN))
         driver.find_element(*TestLocators.PROFILE_BTN).click()
         # Ожидаем появления кнопки входа в личный кабинет после успешной регистрации

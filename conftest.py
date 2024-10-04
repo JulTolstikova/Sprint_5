@@ -6,17 +6,19 @@ from locators import TestLocators
 from selenium.webdriver.chrome.options import Options
 import random
 
+BASE_URL = "https://stellarburgers.nomoreparties.site"
+LOGIN_URL = "https://stellarburgers.nomoreparties.site/login"
 @pytest.fixture
-def base_url():
-    return "https://stellarburgers.nomoreparties.site/login"
+def login_url():
+    return LOGIN_URL
 
 # Фикстура для инициализации драйвера
 @pytest.fixture(scope="function")
-def driver(base_url):
+def driver(login_url):
     options = Options()
     options.add_argument('--window-size=1920,1080')
     driver = webdriver.Chrome(options=options)
-    driver.get(base_url)
+    driver.get(login_url)
     driver.implicitly_wait(5)
     yield driver
     driver.quit()
